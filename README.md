@@ -126,7 +126,7 @@ curl -s https://YOUR_WORKER_URL/v1/messages \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer YOUR_ZO_TOKEN" \
   -d '{
-    "model": "claude-opus-4-7",
+    "model": "claude-opus-4-8",
     "max_tokens": 1024,
     "messages": [{"role": "user", "content": "你好"}],
     "stream": false
@@ -140,7 +140,7 @@ curl -s https://YOUR_WORKER_URL/v1/messages \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer YOUR_GATEWAY_KEY" \
   -d '{
-    "model": "claude-opus-4-7",
+    "model": "claude-opus-4-8",
     "max_tokens": 1024,
     "messages": [{"role": "user", "content": "你好"}],
     "stream": false
@@ -169,7 +169,7 @@ client = anthropic.Anthropic(
 )
 
 message = client.messages.create(
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     max_tokens=1024,
     messages=[{"role": "user", "content": "你好"}],
 )
@@ -185,13 +185,19 @@ print(message.content[0].text)
 
 ## 支持的模型
 
-网关支持 Zo Computer 上所有可用的 Anthropic 模型，包括：
+网关支持 Zo Computer 当前可用的聊天模型，包括：
 
-- `claude-opus-4-7`
-- `claude-sonnet-4`
-- `claude-haiku-4-5-20251001`
+- `claude-opus-4-8`
+- `claude-sonnet-4-6`
+- `gpt-5.5`
+- `gpt-5.4`
+- `gpt-5.4-mini`
+- `deepseek-v4-pro`
+- `glm-5`
+- `minimax-m3`
+- `gemini-3.1-pro-preview`
 
-传入的 model 名会自动加上 `anthropic:` 前缀路由到 Zo。
+传入不带供应商前缀的 model 名时，网关会按内置别名映射到 Zo 的 `provider:model` 格式；也可以直接传 `zo:provider/model`。
 
 ## 已知限制（重要，使用前请读）
 
@@ -199,7 +205,7 @@ print(message.content[0].text)
 
 ### 模型人格 / 行为差异
 
-上游 Zo 平台在调用 Claude 时会**自动注入一段 Zo agentic assistant 的 persona system prompt** 并启用平台自带的工具能力（联网、文件、代码等）。所以即便客户端调用的是 `claude-opus-4-7`，模型也会以"我是 Zo，你的个人云端电脑助手"的身份回答，并可能在没明确请求的情况下使用工具。这与裸 Claude API 的默认行为差异显著。
+上游 Zo 平台在调用 Claude 时会**自动注入一段 Zo agentic assistant 的 persona system prompt** 并启用平台自带的工具能力（联网、文件、代码等）。所以即便客户端调用的是 `claude-opus-4-8`，模型也会以"我是 Zo，你的个人云端电脑助手"的身份回答，并可能在没明确请求的情况下使用工具。这与裸 Claude API 的默认行为差异显著。
 
 → 如果你需要"原生 Claude 行为"，请在 Zo 平台创建一个**无 system prompt、不挂工具的 persona**，然后在请求里通过 `metadata.persona_id` 传入该 persona id：
 
@@ -207,7 +213,7 @@ print(message.content[0].text)
 curl -s https://YOUR_WORKER_URL/v1/messages \
   -H "Authorization: Bearer YOUR_KEY" \
   -d '{
-    "model": "claude-opus-4-7",
+    "model": "claude-opus-4-8",
     "messages": [{"role":"user","content":"你好"}],
     "metadata": {"persona_id": "你的 raw persona id"}
   }'

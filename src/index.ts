@@ -18,16 +18,14 @@ interface Env {
 }
 
 const ZO_MODELS = [
-  { id: 'zo:anthropic/claude-opus-4-7', owned_by: 'Anthropic' },
+  { id: 'zo:anthropic/claude-opus-4-8', owned_by: 'Anthropic' },
   { id: 'zo:anthropic/claude-sonnet-4-6', owned_by: 'Anthropic' },
-  { id: 'zo:openai/gpt-5.3-codex', owned_by: 'OpenAI' },
-  { id: 'zo:openai/gpt-5.4', owned_by: 'OpenAI' },
   { id: 'zo:openai/gpt-5.5', owned_by: 'OpenAI' },
+  { id: 'zo:openai/gpt-5.4', owned_by: 'OpenAI' },
   { id: 'zo:openai/gpt-5.4-mini', owned_by: 'OpenAI' },
   { id: 'zo:deepseek/deepseek-v4-pro', owned_by: 'DeepSeek' },
   { id: 'zo:zai/glm-5', owned_by: 'Z.AI' },
-  { id: 'zo:minimax/minimax-m2.5', owned_by: 'Minimax' },
-  { id: 'zo:minimax/minimax-m2.7', owned_by: 'Minimax' },
+  { id: 'zo:minimax/minimax-m3', owned_by: 'Minimax' },
   { id: 'zo:google/gemini-3.1-pro-preview', owned_by: 'Google' },
 ];
 
