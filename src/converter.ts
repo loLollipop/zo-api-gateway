@@ -85,16 +85,14 @@ function formatMessagesToInput(req: AnthropicRequest): string {
 }
 
 const MODEL_ALIASES: Record<string, string> = {
-  'claude-opus-4-7': 'anthropic:claude-opus-4-7',
+  'claude-opus-4-8': 'anthropic:claude-opus-4-8',
   'claude-sonnet-4-6': 'anthropic:claude-sonnet-4-6',
-  'gpt-5.3-codex': 'openai:gpt-5.3-codex',
-  'gpt-5.4': 'openai:gpt-5.4',
   'gpt-5.5': 'openai:gpt-5.5',
+  'gpt-5.4': 'openai:gpt-5.4',
   'gpt-5.4-mini': 'openai:gpt-5.4-mini',
   'deepseek-v4-pro': 'deepseek:deepseek-v4-pro',
   'glm-5': 'zai:glm-5',
-  'minimax-m2.5': 'minimax:minimax-m2.5',
-  'minimax-m2.7': 'minimax:minimax-m2.7',
+  'minimax-m3': 'minimax:minimax-m3',
   'gemini-3.1-pro-preview': 'google:gemini-3.1-pro-preview',
 };
 

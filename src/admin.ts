@@ -220,7 +220,7 @@ export function getAdminHTML(baseUrl: string): string {
         <div class="stat-card"><div class="label">\u53ef\u7528</div><div class="value green" id="s-available">0</div></div>
         <div class="stat-card"><div class="label">\u5df2\u7981\u7528</div><div class="value red" id="s-disabled">0</div></div>
         <div class="stat-card"><div class="label">\u5df2\u9a8c\u8bc1\u6709\u6548</div><div class="value green" id="s-valid">0</div></div>
-        <div class="stat-card"><div class="label">\u652f\u6301\u6a21\u578b</div><div class="value purple" id="s-models">11</div></div>
+        <div class="stat-card"><div class="label">\u652f\u6301\u6a21\u578b</div><div class="value purple" id="s-models">9</div></div>
       </div>
       <div class="card">
         <div class="strategy-card">
@@ -308,14 +308,13 @@ export function getAdminHTML(baseUrl: string): string {
       <div class="card">
         <h3>\u652f\u6301\u7684\u6a21\u578b</h3>
         <div class="info-grid">
-          <div class="info-item"><div class="label">Anthropic</div><div class="val">claude-opus-4-7</div></div>
+          <div class="info-item"><div class="label">Anthropic</div><div class="val">claude-opus-4-8</div></div>
           <div class="info-item"><div class="label">Anthropic</div><div class="val">claude-sonnet-4-6</div></div>
-          <div class="info-item"><div class="label">OpenAI</div><div class="val">gpt-5.3-codex</div></div>
           <div class="info-item"><div class="label">OpenAI</div><div class="val">gpt-5.4 / gpt-5.5</div></div>
           <div class="info-item"><div class="label">OpenAI</div><div class="val">gpt-5.4-mini</div></div>
           <div class="info-item"><div class="label">DeepSeek</div><div class="val">deepseek-v4-pro</div></div>
           <div class="info-item"><div class="label">Z.AI</div><div class="val">glm-5</div></div>
-          <div class="info-item"><div class="label">Minimax</div><div class="val">minimax-m2.5 / m2.7</div></div>
+          <div class="info-item"><div class="label">Minimax</div><div class="val">minimax-m3</div></div>
           <div class="info-item"><div class="label">Google</div><div class="val">gemini-3.1-pro-preview</div></div>
         </div>
       </div>
@@ -405,16 +404,14 @@ let allTokens = [];
 let currentStrategy = 'round-robin';
 
 const ZO_MODELS = [
-  { name: 'claude-opus-4-7', provider: 'anthropic' },
+  { name: 'claude-opus-4-8', provider: 'anthropic' },
   { name: 'claude-sonnet-4-6', provider: 'anthropic' },
-  { name: 'gpt-5.3-codex', provider: 'openai' },
-  { name: 'gpt-5.4', provider: 'openai' },
   { name: 'gpt-5.5', provider: 'openai' },
+  { name: 'gpt-5.4', provider: 'openai' },
   { name: 'gpt-5.4-mini', provider: 'openai' },
   { name: 'deepseek-v4-pro', provider: 'deepseek' },
   { name: 'glm-5', provider: 'zai' },
-  { name: 'minimax-m2.5', provider: 'minimax' },
-  { name: 'minimax-m2.7', provider: 'minimax' },
+  { name: 'minimax-m3', provider: 'minimax' },
   { name: 'gemini-3.1-pro-preview', provider: 'google' },
 ];
 
